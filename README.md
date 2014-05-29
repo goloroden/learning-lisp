@@ -38,9 +38,15 @@ Additionally, there are a few special character literals, such as:
 
 ## Data mode
 
-To switch Lisp into data mode you have to use quoting. This can either be done by using the `quote` command or by prefixing a list with the `'` character. Hence the following two lists are equivalent:
+To switch Lisp into data mode you have to use *quoting*. This can either be done by using the `quote` command or by prefixing a list with the `'` character. Hence the following two lists are equivalent:
 
 ```lisp
 (quote 2 3 5 7 11)
 '(2 3 5 7 11)
+```
+
+There is also *quasi-quoting* which is uses the `\`` character as a prefix, but allows to switch back to code mode using a `,`:
+
+```lisp
+\`(2 3 ,(+ 2 3) 7 11)
 ```
