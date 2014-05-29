@@ -25,8 +25,10 @@ They all are of type `NULL`.
 
 Characters are represented by using the prefix `#\`. Hence, e.g. the character `a` becomes `#\a`, as in
 
-    (princ #\a)
-    ;; => a
+```lisp
+(princ #\a)
+;; => a
+```
 
 Additionally, there are a few special character literals, such as:
 
