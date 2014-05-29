@@ -19,7 +19,7 @@ Besides `nil` there are a number of literals that are equivalent to `false`:
 - `()`
 - `'()`
 
-They all are of type `NULL`.
+As `nil` itself, they also are of type `NULL`.
 
 ### Character literals
 
