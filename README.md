@@ -35,3 +35,12 @@ Additionally, there are a few special character literals, such as:
 - `#\newline`
 - `#\space`
 - `#\tab`
+
+## Data mode
+
+To switch Lisp into data mode you have to use quoting. This can either be done by using the `quote` command or by prefixing a list with the `'` character. Hence the following two lists are equivalent:
+
+```lisp
+(quote 2 3 5 7 11)
+'(2 3 5 7 11)
+```
