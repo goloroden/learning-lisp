@@ -2,6 +2,15 @@
 
 learning-lisp contains my notes on Lisp.
 
+## Comments
+
+In Lisp a comment is started by the `;` character. Depending on where the comment is placed, the number of `;` characters vary:
+
+- Use one semicolon for a comment at the end of a line.
+- Use two semicolons for a comment that is inlined with the code.
+- Use three semicolons for a comment that document code blocks and start in column 1.
+- Use four semicolons for titles and introductory information on a code file.
+
 ## Literals
 
 ### Boolean literals
