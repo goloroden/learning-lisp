@@ -23,7 +23,11 @@ They all are of type `NULL`.
 
 ### Character literals
 
-Characters are represented by using the prefix `#\`. Hence, e.g. the character `a` becomes `#\a`. Additionally, there are a few special character literals, such as:
+Characters are represented by using the prefix `#\`. Hence, e.g. the character `a` becomes:
+
+`#\a`
+
+Additionally, there are a few special character literals, such as:
 
 - `#\newline`
 - `#\space`
