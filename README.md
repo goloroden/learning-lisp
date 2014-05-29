@@ -23,9 +23,10 @@ They all are of type `NULL`.
 
 ### Character literals
 
-Characters are represented by using the prefix `#\`. Hence, e.g. the character `a` becomes:
+Characters are represented by using the prefix `#\`. Hence, e.g. the character `a` becomes `#\a`, as in
 
-`#\a`
+    (princ #\a)
+    ;; => a
 
 Additionally, there are a few special character literals, such as:
 
