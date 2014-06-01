@@ -35,13 +35,13 @@ Lisp contains two literals that are typically used in a boolean context:
 
 #### Falsy values
 
-Besides `nil` there are a number of literals that are equivalent to `false`:
+Besides `nil` there are a number of things that are equivalent to `false`:
 
 - `'nil`
 - `()`
 - `'()`
 
-As `nil` itself, they also are of type `NULL`.
+As `nil` itself, they also are of type `NULL`. Please note that the quoted ones are not literals themselves.
 
 ### Character literals
 
@@ -63,7 +63,7 @@ Additionally, there are a few special character literals, such as:
 To switch Lisp into data mode you have to use *quoting*. This can either be done by using the `quote` command or by prefixing a list with the `'` character. Hence the following two lists are equivalent:
 
 ```lisp
-(quote 2 3 5 7 11)
+(quote (2 3 5 7 11))
 '(2 3 5 7 11)
 ```
 
