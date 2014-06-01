@@ -35,7 +35,7 @@ Lisp contains two literals that are typically used in a boolean context:
 
 #### Values evaluating to false
 
-Besides `nil` there are a number of equivalents that also evaluate to `false`:
+Besides `nil` there are a number of expressions that also evaluate to `false` and are commonly referred to as equivalents to `nil` within conditions:
 
 - `'nil`
 - `()`
