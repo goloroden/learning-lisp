@@ -303,11 +303,15 @@ As usual, `eval` should be considered bad style and be used carefully.
 
 ## Working with characters and strings
 
+### Getting the length of a string
+
 To get the length of a string use `length`:
 
 ```lisp
 (length "Hello world!") ; => 12
 ```
+
+### Getting substrings
 
 If you need a substring of a string use `subseq` and provide the start as well as the end index. Please note that they are zero-based:
 
@@ -316,9 +320,34 @@ If you need a substring of a string use `subseq` and provide the start as well a
 ;; => "world"
 ```
 
+Sometimes you need to trim a string, i.e. remove one or more characters from its beginning, its end, or from both. For that use `string-trim`:
+
+```lisp
+(string-trim " " "   Hello world!   ")
+;; => "Hello world!"
+```
+
+Please note that you can provide more than character by simply specifying them as a string in the first parameter:
+
+```lisp
+(string-trim " $" "$   Hello world!   ")
+;; => "Hello world!"
+```
+
+### Extending strings
+
 To concatenate multiple strings into a single one use `concatenate` and provide an arbitrary number of strings. Please note that you must specify the expected type of the result, i.e. `'string`:
 
 ```lisp
 (concatenate 'string "Hello " "world!")
 ;; => "Hello world!"
+```
+
+### Manipulating strings
+
+Sometimes you want to replace parts of a string with other text. For that you can use `substitute-if` and provide an appropriate predicate function:
+
+```lisp
+(substitute-if #\_ (complement #'alphanumericp) "Hello world!")
+;; => "Hello_world_"
 ```
