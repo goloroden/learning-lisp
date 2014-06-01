@@ -14,13 +14,14 @@ In Lisp a comment is started by the `;` character. Depending on where the commen
 The following sample shows how comments should be used:
 
 ```lisp
-;;;; This sample implements a simple hello world
-;;;; application.
+;;;; This sample implements a simple hello world application.
 
 ;;; Define the hello-world function.
 (defun hello-world ()
   ;; Print the string hello world to the console.
   (princ "Hello world!")) ; Might use prin1 instead.
+
+(hello-world) ; Finally, call the hello-world function.
 ```
 
 ## Literals
