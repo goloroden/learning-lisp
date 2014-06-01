@@ -220,7 +220,7 @@ To test whether a character is of a specific class of characters, use `alphanume
 (alphanumericp #\1) ; => t
 (alphanumericp #\_) ; => nil
 
-(digit-char-p #\a) ; => nil
-(digit-char-p #\1) ; => t
-(digit-char-p #\_) ; => nil
+(digit-char-p #\a)  ; => nil
+(digit-char-p #\1)  ; => t
+(digit-char-p #\_)  ; => nil
 ```
