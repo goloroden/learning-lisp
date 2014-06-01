@@ -321,7 +321,7 @@ Alternatively you may use `list`:
 ;; => (2 3 5 7 11)
 ```
 
-### Pair and association lists
+### Dotted lists and association lists
 
 If you only use a single cons cell you can create a so-called *dotted list* respectively a *pair*:
 
