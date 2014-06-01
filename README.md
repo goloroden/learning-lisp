@@ -346,6 +346,34 @@ To get the length of a list use `length`:
 (length '(2 3 5 7 11)) ; => 5
 ```
 
+### Accessing list items
+
+To get the first item from a list use `car`:
+
+```lisp
+(car '(2 3 5 7 11)) ; => 2
+```
+
+To get the rest from a list use `cdr`:
+
+```lisp
+(cdr '(2 3 5 7 11)) ; => (3 5 7 11)
+```
+
+Now you can combine those two functions. E.g., to access the third item from a list you first get the rest, then the rest of that rest, and then the first item, i.e. you nest `cdr`, `cdr` and `car`:
+
+```lisp
+(car (cdr (cdr '(2 3 5 7 11)))) ; => 5
+```
+
+Alternatively, you can combine those into a single call by merging the `a` and `d` characters:
+
+```lisp
+(caddr '(2 3 5 7 11)) ; => 5
+```
+
+This works for up to four levels.
+
 ### Getting sublists
 
 [...]
