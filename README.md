@@ -303,7 +303,7 @@ As usual, `eval` should be considered bad style and be used carefully.
 
 ## Working with lists
 
-Lists in Lisp consist of cons cells that are linked to each other. Hence a list is, technically speaking, a linked list.
+Lists in Lisp consist of *cons cells* that are linked to each other. Hence a list is, technically speaking, a linked list.
 
 ### Creating lists
 
