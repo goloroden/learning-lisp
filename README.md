@@ -246,7 +246,7 @@ To map a list to a function, use `mapcar` or `mapc`, depending on whether you wa
 ;; => (1 2 3 4 5)
 ```
 
-While `mapcar` rather conforms to the `map` function in functional programming, `mapc` is more like a `for each` loop.
+While `mapcar` rather conforms to the `map` function in functional programming, `mapc` is more like a `for each` loop and hence only useful for potential side-effects of the specified function.
 
 Besides that there is also `maplist` which in each iteration processes the rest of the list:
 
