@@ -194,3 +194,33 @@ To calculate the power of a value use `expt` and provide the base as well as the
 (expt 2 4) ; => 16
 (sqrt 16)  ; => 4
 ```
+
+## Predicate functions
+
+In Lisp there are a number of pre-defined predicate functions. They end in `p`, or - if the function itself already contains a hyphen - in `-p`.
+
+### Predicates on numbers
+
+To test whether a number is even or odd, use `evenp` and `oddp`:
+
+```lisp
+(evenp 42) ; => t
+(evenp 23) ; => nil
+
+(oddp 42)  ; => nil
+(oddp 23)  ; => t
+```
+
+### Predicates on characters
+
+To test whether a character is of a specific class of characters, use `alphanumericp` and `digit-char-p`:
+
+```lisp
+(alphanumericp #\a) ; => t
+(alphanumericp #\1) ; => t
+(alphanumericp #\_) ; => nil
+
+(digit-char-p #\a) ; => nil
+(digit-char-p #\1) ; => t
+(digit-char-p #\_) ; => nil
+```
