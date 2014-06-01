@@ -301,6 +301,61 @@ Sometimes code is given as data, e.g. when reading code from the console. To run
 
 As usual, `eval` should be considered bad style and be used carefully.
 
+## Working with lists
+
+Lists in Lisp consist of cons cells that are linked to each other. Hence a list is, technically speaking, a linked list.
+
+### Creating lists
+
+To create a list use `cons` and specify the value of the cons cell as well as the next cons cell, or `nil` if it is the last element of a list:
+
+```lisp
+(cons 2 (cons 3 (cons 5 (cons 7 (cons 11 nil)))))
+;; => (2 3 5 7 11)
+```
+
+Alternatively you may use `list`:
+
+```lisp
+(list 2 3 5 7 11)
+;; => (2 3 5 7 11)
+```
+
+If you only use a single cons cell you can create a so-called *dotted list* respectively a *pair*:
+
+```lisp
+(cons 2 3) ; => (2 . 3)
+```
+
+Additionally, you may build lists of pairs. These are called *associated lists* (or *alist*):
+
+```lisp
+'((1 . 1)
+  (2 . 4)
+  (3 . 9)
+  (4 . 16))
+```
+
+### Getting the length of a list
+
+To get the length of a list use `length`:
+
+```lisp
+(length '(2 3 5 7 11)) ; => 5
+```
+
+### Getting sublists
+
+[...]
+
+### Extending lists
+
+[...]
+
+### Manipulating lists
+
+[...]
+
 ## Working with characters and strings
 
 ### Getting the length of a string
