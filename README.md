@@ -236,7 +236,7 @@ First of all, to access a function by name, you need to use `function` or its sh
 
 ### Mapping
 
-To map a list to a function, use `mapcar` or `mapc`, depending on whether you want it to return the mapped list (`mapcar` does, `mapc` doesn't and instead returns the original list):
+To map a list to a function, use `mapcar` or `mapc`, depending on whether you want the mapped list to be returned or not (`mapcar` does, `mapc` doesn't and instead returns the original list):
 
 ```lisp
 (mapcar #'evenp '(1 2 3 4 5))
