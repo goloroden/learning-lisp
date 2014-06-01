@@ -78,7 +78,7 @@ There is also *quasi-quoting* which is uses the `` ` `` character as a prefix, b
 
 ### Defining global variables
 
-To define global variables, use the functions `defparameter` and `defvar`. They differ in terms of repeatability: While a variable defined with `defparameter` can be re-defined, variables defined with `defvar` can't.
+To define global variables use the functions `defparameter` and `defvar`. They differ in terms of repeatability: While a variable defined with `defparameter` can be re-defined, variables defined with `defvar` can't.
 
 In Lisp, it is common to surround global variable names with so-called *ear-muffs*, that is, with a `*` as prefix and suffix:
 
@@ -88,7 +88,7 @@ In Lisp, it is common to surround global variable names with so-called *ear-muff
 
 ### Defining local variables
 
-To define local variables, use the `let` function. You can define one or more variables, and they are only visible in the body of the `let` function:
+To define local variables use the `let` function. You can define one or more variables, and they are only visible in the body of the `let` function:
 
 ```lisp
 (defun add ()
@@ -99,7 +99,7 @@ To define local variables, use the `let` function. You can define one or more va
 
 ### Assigning values
 
-To assign a value to a variable, use the `setf` function:
+To assign a value to a variable use the `setf` function:
 
 ```lisp
 (setf *foo* 23)
@@ -109,4 +109,44 @@ An expression may be used for the value to be assigned as well as for the variab
 
 ```lisp
 (setf (car '(*foo*)) (+ 10 13))
+```
+
+## Functions
+
+### Defining global functions
+
+To define a global function use the `defun` function. Specify the name of the function as well as its parameters and its body.
+
+```lisp
+(defun add (x y)
+  (+ x y))
+```
+
+If a function doesn't have any parameters, simply specify an empty list.
+
+### Defining local functions
+
+To define local functions use the `flet` function. Basically it works like the `let` function, except that it defines functions instead of variables.
+
+```lisp
+(defun calculate ()
+  (flet ((add (x y)
+              (+ x y))
+         (mul (x y)
+              (* x y)))
+        (mul 2 (add 3 4))))
+
+(calculate)
+;; => 14
+```
+
+Alternatively, you may use the `labels` function. It works in exactly the same way as `flet`, but defined functions can use earlier defined ones. In contrast, when using `flet`, the functions are only accessible from `flet`'s body.
+
+### Defining lambda functions
+
+To define a lambda function use the `lambda` function.
+
+```lisp
+(mapcar (lambda (x) (* x x)) '(1 2 3 4 5))
+;; => (1 4 9 16 25)
 ```
