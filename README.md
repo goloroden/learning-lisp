@@ -257,9 +257,23 @@ Besides that there is also `maplist` which in each iteration processes the rest 
 
 ### Complementing functions
 
-Sometimes it is necessary to get the complement of a specific function, e.g. it might be useful to have a predicate that matches everything but a digit, so this would be the complement of `digit-char-p`. To get the complement use `complement`:
+Sometimes it is necessary to get the complement of a specific function, e.g. it might be useful to have a predicate that matches everything but a digit, so this would be the complement of `digit-char-p`.
+
+To get the complement use `complement`:
 
 ```lisp
 (mapcar (complement #'digit-char-p) '(#\a #\1 #\_))
 ;; => (t nil t)
+```
+
+### Invoking functions
+
+To invoke a function use `apply` or `funcall`, depending on whether the parameters are given as a list or as separate values.
+
+```lisp
+(apply #'evenp '(42)) ; => t
+(apply #'evenp '(23)) ; => nil
+
+(funcall #'evenp 42)  ; => t
+(funcall #'evenp 23)  ; => nil
 ```
