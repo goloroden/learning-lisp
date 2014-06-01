@@ -351,3 +351,10 @@ Sometimes you want to replace parts of a string with other text. For that you ca
 (substitute-if #\_ (complement #'alphanumericp) "Hello world!")
 ;; => "Hello_world_"
 ```
+
+To convert characters to uppercase or lowercase, use `char-upcase` and `char-downcase`:
+
+```lisp
+(char-upcase #\a)   ; => A
+(char-downcase #\A) ; => a
+```
