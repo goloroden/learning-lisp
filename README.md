@@ -300,3 +300,25 @@ Sometimes code is given as data, e.g. when reading code from the console. To run
 ```
 
 As usual, `eval` should be considered bad style and be used carefully.
+
+## Working with characters and strings
+
+To get the length of a string use `length`:
+
+```lisp
+(length "Hello world!") ; => 12
+```
+
+If you need a substring of a string use `subseq` and provide the start as well as the end index. Please note that they are zero-based:
+
+```lisp
+(subseq "Hello world!" 6 11)
+;; => "world"
+```
+
+To concatenate multiple strings into a single one use `concatenate` and provide an arbitrary number of strings. Please note that you must specify the expected type of the result, i.e. `'string`:
+
+```lisp
+(concatenate 'string "Hello " "world!")
+;; => "Hello world!"
+```
