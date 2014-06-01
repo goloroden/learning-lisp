@@ -48,8 +48,7 @@ Please note that not all of them are literals, especially the quoted ones.
 Characters are represented by using the prefix `#\`. Hence, e.g. the character `a` becomes `#\a`, as in
 
 ```lisp
-(princ #\a)
-;; => a
+(princ #\a) ; => a
 ```
 
 Additionally, there are a few special character literals, such as:
@@ -149,4 +148,49 @@ To define a lambda function use `lambda`.
 ```lisp
 (mapcar (lambda (x) (* x x)) '(1 2 3 4 5))
 ;; => (1 4 9 16 25)
+```
+
+## Calculations
+
+### Basic arithmetic operations
+
+First of all, Lisp supports the four basic arithmetic operations: `+`, `-`, `*` and `/`, that are used in prefix notation:
+
+```lisp
+(* 2 (+ 3 4)) ; => 14
+```
+
+In contrast to other languages, the codomain is not limited, i.e. numbers may become arbitrarily large. Additionally, Lisp supports division with rational numbers, such as:
+
+```lisp
+(/ 1 3) ; => 1/3
+```
+
+### Shortcut arithmetic operations
+
+If you just want to add or subtract one from a given value, you may use `1+` and `1-`. Hence, the following two lines of code are equivalent:
+
+```lisp
+(- 7 1) ; => -6
+(1- 7)  ; => -6
+```
+
+### Arithmetic shifting
+
+To do arithmetic shifting use `ash`. It requires an expression and the number of bits to shift to the left or to the right. Positive values shift to the left, while negative values shift to the right:
+
+```lisp
+(ash 16 1)  ; => 32
+(ash 16 3)  ; => 128
+(ash 16 -1) ; => 8
+(ash 16 -3) ; => 2
+```
+
+### Power and root
+
+To calculate the power of a value use `expt` and provide the base as well as the exponent. In contrast, to calculate the square root use `sqrt`:
+
+```lisp
+(expt 2 4) ; => 16
+(sqrt 16)  ; => 4
 ```
