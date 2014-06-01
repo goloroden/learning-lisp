@@ -374,17 +374,14 @@ Alternatively, you can combine those into a single call by merging the `a` and `
 
 This works for up to four levels.
 
-### Getting sublists
+### Combining lists
 
-[...]
+To concatenate lists use `append` and provide an arbitrary number of lists:
 
-### Extending lists
-
-[...]
-
-### Manipulating lists
-
-[...]
+```lisp
+(append '(2 3) '(5 7 11))
+;; => (2 3 5 7 11)
+```
 
 ## Working with characters and strings
 
