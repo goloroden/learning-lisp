@@ -133,7 +133,7 @@ To define local functions use `flet`. Basically it works like `let`, except that
               (+ x y))
          (mul (x y)
               (* x y)))
-        (mul 2 (add 3 4))))
+    (mul 2 (add 3 4))))
 
 (calculate)
 ;; => 14
