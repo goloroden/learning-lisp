@@ -321,13 +321,15 @@ Alternatively you may use `list`:
 ;; => (2 3 5 7 11)
 ```
 
+### Pair and association lists
+
 If you only use a single cons cell you can create a so-called *dotted list* respectively a *pair*:
 
 ```lisp
 (cons 2 3) ; => (2 . 3)
 ```
 
-Additionally, you may build lists of pairs. These are called *associated lists* (or *alist*):
+Additionally, you may build lists of pairs. These are called *association lists* (or *alist*):
 
 ```lisp
 '((1 . 1)
