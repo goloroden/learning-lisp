@@ -33,7 +33,7 @@ Lisp contains two literals that are typically used in a boolean context:
 - `t` is of type `BOOLEAN` and represents `true`
 - `nil` is of type `NULL` and represents `false`
 
-#### Falsy values
+#### Values evaluating to false
 
 Besides `nil` there are a number of equivalents that also evaluate to `false`:
 
