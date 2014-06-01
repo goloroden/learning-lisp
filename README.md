@@ -224,3 +224,24 @@ To test whether a character is of a specific class of characters, use `alphanume
 (digit-char-p #\1)  ; => t
 (digit-char-p #\_)  ; => nil
 ```
+
+## Higher-order functions
+
+First of all, to access a function by name, you need to use `function` or its short cut `#'`. Hence the two following expressions are equivalent:
+
+```lisp
+(function evenp)
+#'evenp
+```
+
+### Mapping
+
+To map a list to a function, use `mapcar` or `mapc`, depending on whether you want it to return the mapped list (`mapcar` does, `mapc` doesn't and instead returns the original list):
+
+```lisp
+(mapcar (lambda (x) (* x x)) '(1 2 3 4 5))
+;; => (1 4 9 16 25)
+
+(mapc (lambda (x) (* x x)) '(1 2 3 4 5))
+;; => (1 2 3 4 5)
+```
