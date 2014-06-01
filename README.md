@@ -105,10 +105,10 @@ To assign a value to a variable use `setf`:
 (setf *foo* 23)
 ```
 
-An expression may be used for the value to be assigned as well as for the variable's name. Hence, the sample above may be rewritten as:
+An expression may be used for the value to be assigned. Hence, the sample above may be rewritten as:
 
 ```lisp
-(setf (car '(*foo*)) (+ 10 13))
+(setf *foo* (+ 10 13))
 ```
 
 ## Functions
