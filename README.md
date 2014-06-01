@@ -289,3 +289,14 @@ If you want to evaluate an expression lazily, move it into a lambda function. Th
 (run (lambda () (+ 23 42)))
 ;; => 65
 ```
+
+## Running code
+
+Sometimes code is given as data, e.g. when reading code from the console. To run such code use `eval`:
+
+```lisp
+(eval '(+ 23 42))
+;; => 65
+```
+
+As usual, `eval` should be considered bad style and be used carefully.
