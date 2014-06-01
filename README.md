@@ -28,10 +28,10 @@ The following sample shows how comments should be used:
 
 ### Boolean literals
 
-Lisp contains two literals that are typically used in a boolean context:
+Lisp contains two literals that are of type `BOOLEAN` and hence are typically used in a boolean context:
 
-- `t` is of type `BOOLEAN` and represents `true`
-- `nil` is of type `NULL` and represents `false`
+- `t` represents `true`
+- `nil` represents `false`
 
 #### Values evaluating to false
 
@@ -41,7 +41,7 @@ Besides `nil` there are a number of expressions that also evaluate to `false` an
 - `()`
 - `'()`
 
-As `nil` itself, they are also of type `NULL`. Please note that not all of them are literals, especially the quoted ones.
+Please note that not all of them are literals, especially the quoted ones.
 
 ### Character literals
 
