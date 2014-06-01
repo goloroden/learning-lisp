@@ -239,9 +239,18 @@ First of all, to access a function by name, you need to use `function` or its sh
 To map a list to a function, use `mapcar` or `mapc`, depending on whether you want it to return the mapped list (`mapcar` does, `mapc` doesn't and instead returns the original list):
 
 ```lisp
-(mapcar (lambda (x) (* x x)) '(1 2 3 4 5))
-;; => (1 4 9 16 25)
+(mapcar #'evenp '(1 2 3 4 5))
+;; => (nil t nil t nil)
 
-(mapc (lambda (x) (* x x)) '(1 2 3 4 5))
+(mapc #'evenp '(1 2 3 4 5))
 ;; => (1 2 3 4 5)
+```
+
+While `mapcar` rather conforms to the `map` function in functional programming, `mapc` is more like a `for each` loop.
+
+Besides that there is also `maplist` which in each iteration processes the rest of the list:
+
+```lisp
+(maplist #'identity '(1 2 3))
+;; => ((1 2 3) (2 3) (3))
 ```
