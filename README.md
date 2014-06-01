@@ -73,3 +73,15 @@ There is also *quasi-quoting* which is uses the `` ` `` character as a prefix, b
 `(2 3 ,(+ 2 3) 7 11)
 ;; => (2 3 5 7 11)
 ```
+
+## Variables
+
+### Defining global variables
+
+To define global variables, use the functions `defparameter` and `defvar`. They differ in terms of repeatability: While a variable defined with `defparameter` can be re-defined, variables defined with `defvar` can't.
+
+In Lisp, it is common to surround global variable names with so-called *ear-muffs*, that is, with a `*` as prefix and suffix:
+
+```lisp
+(defparameter *the-answer-to-everything* 42)
+```
