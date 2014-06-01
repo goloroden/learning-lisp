@@ -85,3 +85,28 @@ In Lisp, it is common to surround global variable names with so-called *ear-muff
 ```lisp
 (defparameter *the-answer-to-everything* 42)
 ```
+
+### Defining local variables
+
+To define local variables, use the `let` function. You can define one or more variables, and they are only visible in the body of the `let` function:
+
+```lisp
+(defun add ()
+  (let ((x 23)
+        (y 42))
+    (+ x y)))
+```
+
+### Assigning values
+
+To assign a value to a variable, use the `setf` function:
+
+```lisp
+(setf *foo* 23)
+```
+
+An expression may be used for the value to be assigned as well as for the variable's name. Hence, the sample above may be rewritten as:
+
+```lisp
+(setf (car '(*foo*)) (+ 10 13))
+```
