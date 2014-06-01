@@ -374,13 +374,22 @@ Alternatively, you can combine those into a single call by merging the `a` and `
 
 This works for up to four levels.
 
-### Combining lists
+### Combining and extending lists
 
 To concatenate lists use `append` and provide an arbitrary number of lists:
 
 ```lisp
 (append '(2 3) '(5 7 11))
 ;; => (2 3 5 7 11)
+```
+
+To add a new item to a list use `push`. Please note that `push` adds to the beginning of the list, not to its end:
+
+```lisp
+(defparameter *primes* '(3 5 7 11))
+(push 2 *primes*)
+
+*primes* ; => (2 3 5 7 11)
 ```
 
 ## Working with characters and strings
