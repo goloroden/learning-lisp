@@ -35,13 +35,13 @@ Lisp contains two literals that are typically used in a boolean context:
 
 #### Falsy values
 
-Besides `nil` there are a number of things that are equivalent to `false`:
+Besides `nil` there are a number of equivalents that also evaluate to `false`:
 
 - `'nil`
 - `()`
 - `'()`
 
-As `nil` itself, they also are of type `NULL`. Please note that the quoted ones are not literals themselves.
+As `nil` itself, they are also of type `NULL`. Please note that not all of them are literals, especially the quoted ones.
 
 ### Character literals
 
@@ -60,14 +60,14 @@ Additionally, there are a few special character literals, such as:
 
 ## Data mode
 
-To switch Lisp into data mode you have to use *quoting*. This can either be done by using the `quote` command or by prefixing a list with the `'` character. Hence the following two lists are equivalent:
+To switch Lisp into data mode you have to use *quoting*. This can either be done by using `quote` or by prefixing a list with the `'` character. Hence the following two lists are equivalent:
 
 ```lisp
 (quote (2 3 5 7 11))
 '(2 3 5 7 11)
 ```
 
-There is also *quasi-quoting* which is uses the `` ` `` character as a prefix, but allows to switch back to code mode using a `,`:
+There is also *quasi-quoting* which uses the `` ` `` character as a prefix, but allows to switch back to code mode using a `,`:
 
 ```lisp
 `(2 3 ,(+ 2 3) 7 11)
@@ -78,7 +78,7 @@ There is also *quasi-quoting* which is uses the `` ` `` character as a prefix, b
 
 ### Defining global variables
 
-To define global variables use the functions `defparameter` and `defvar`. They differ in terms of repeatability: While a variable defined with `defparameter` can be re-defined, variables defined with `defvar` can't.
+To define global variables use `defparameter` and `defvar`. They differ in terms of repeatability: While a variable defined with `defparameter` can be re-defined, variables defined with `defvar` can't.
 
 In Lisp, it is common to surround global variable names with so-called *ear-muffs*, that is, with a `*` as prefix and suffix:
 
@@ -88,7 +88,7 @@ In Lisp, it is common to surround global variable names with so-called *ear-muff
 
 ### Defining local variables
 
-To define local variables use the `let` function. You can define one or more variables, and they are only visible in the body of the `let` function:
+To define local variables use `let`. You can define one or more variables, and they are only visible in the body of `let`:
 
 ```lisp
 (defun add ()
@@ -99,7 +99,7 @@ To define local variables use the `let` function. You can define one or more var
 
 ### Assigning values
 
-To assign a value to a variable use the `setf` function:
+To assign a value to a variable use `setf`:
 
 ```lisp
 (setf *foo* 23)
@@ -115,7 +115,7 @@ An expression may be used for the value to be assigned as well as for the variab
 
 ### Defining global functions
 
-To define a global function use the `defun` function. Specify the name of the function as well as its parameters and its body.
+To define a global function use `defun`. Specify the name of the function as well as its parameters and its body.
 
 ```lisp
 (defun add (x y)
@@ -126,7 +126,7 @@ If a function doesn't have any parameters, simply specify an empty list.
 
 ### Defining local functions
 
-To define local functions use the `flet` function. Basically it works like the `let` function, except that it defines functions instead of variables.
+To define local functions use `flet`. Basically it works like `let`, except that it defines functions instead of variables.
 
 ```lisp
 (defun calculate ()
@@ -140,11 +140,11 @@ To define local functions use the `flet` function. Basically it works like the `
 ;; => 14
 ```
 
-Alternatively, you may use the `labels` function. It works in exactly the same way as `flet`, but defined functions can use earlier defined ones. In contrast, when using `flet`, the functions are only accessible from `flet`'s body.
+Alternatively, you may use `labels`. It works in exactly the same way as `flet`, but defined functions can use the ones defined earlier. In contrast, when using `flet`, the functions are only accessible from `flet`'s body.
 
 ### Defining lambda functions
 
-To define a lambda function use the `lambda` function.
+To define a lambda function use `lambda`.
 
 ```lisp
 (mapcar (lambda (x) (* x x)) '(1 2 3 4 5))
