@@ -11,6 +11,18 @@ In Lisp a comment is started by the `;` character. Depending on where the commen
 - Use three semicolons for a comment that document code blocks and start in column 1.
 - Use four semicolons for titles and introductory information on a code file.
 
+The following sample shows how comments should be used:
+
+```lisp
+;;;; This sample implements a simple hello world
+;;;; application.
+
+;;; Define the hello-world function.
+(defun hello-world ()
+  ;; Print the string hello world to the console.
+  (princ "Hello world!")) ; Might use prin1 instead.
+```
+
 ## Literals
 
 ### Boolean literals
