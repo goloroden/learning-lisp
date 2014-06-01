@@ -277,3 +277,15 @@ To invoke a function use `apply` or `funcall`, depending on whether the paramete
 (funcall #'evenp 42)  ; => t
 (funcall #'evenp 23)  ; => nil
 ```
+
+### Lazy evaluation
+
+If you want to evaluate an expression lazily, move it into a lambda function. Then you can move around this function and call it when needed. If such a function does not have any parameters, it is called a *nullary function* or a *thunk*:
+
+```lisp
+(defun run (thunk)
+  (funcall thunk))
+
+(run (lambda () (+ 23 42)))
+;; => 65
+```
