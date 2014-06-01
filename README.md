@@ -234,7 +234,7 @@ First of all, to access a function by name, you need to use `function` or its sh
 #'evenp
 ```
 
-### Mapping
+### Mapping lists
 
 To map a list to a function, use `mapcar` or `mapc`, depending on whether you want the mapped list to be returned or not (`mapcar` does, `mapc` doesn't and instead returns the original list):
 
@@ -253,4 +253,13 @@ Besides that there is also `maplist` which in each iteration processes the rest 
 ```lisp
 (maplist #'identity '(1 2 3))
 ;; => ((1 2 3) (2 3) (3))
+```
+
+### Complementing functions
+
+Sometimes it is necessary to get the complement of a specific function, e.g. it might be useful to have a predicate that matches everything but a digit, so this would be the complement of `digit-char-p`. To get the complement use `complement`:
+
+```lisp
+(mapcar (complement #'digit-char-p) '(#\a #\1 #\_))
+;; => (t nil t)
 ```
