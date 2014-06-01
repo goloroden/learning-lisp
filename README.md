@@ -360,7 +360,7 @@ To get the rest from a list use `cdr`:
 (cdr '(2 3 5 7 11)) ; => (3 5 7 11)
 ```
 
-Now you can combine these two. E.g., to access the third item from a list you first get the rest, then the rest of that rest, and then the first item, i.e. you nest `car`, `cdr` and `cdr`:
+Now you can combine these two. E.g., to access the third item from a list you first get the rest, then the rest of the rest, and then the first item, i.e. you nest `car`, `cdr` and `cdr`:
 
 ```lisp
 (car (cdr (cdr '(2 3 5 7 11)))) ; => 5
