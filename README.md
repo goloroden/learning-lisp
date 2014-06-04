@@ -669,7 +669,7 @@ From time to time you need to check multiple conditions and decide which path to
 A working, real-life example may be an implementation of *fizz buzz*:
 
 ```lisp
-(defun fizz-buzz (n)
+(defun is-fizz-buzz (n)
   (cond
     ((and
        (zerop (mod n 3))
@@ -681,6 +681,6 @@ A working, real-life example may be an implementation of *fizz buzz*:
      'buzz)
     (t n)))
 
-(fizz-buzz 15)
+(is-fizz-buzz 15)
 ;; => fizz-buzz
 ```
