@@ -666,7 +666,7 @@ From time to time you need to check multiple conditions and decide which path to
   (t <expression> <...>))
 ```
 
-A working, real-life example may be an implementation of *fizz buzz*:
+A real-life example may be an implementation of *fizz buzz*:
 
 ```lisp
 (defun is-fizz-buzz (n)
