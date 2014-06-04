@@ -726,3 +726,11 @@ To write the output in a more human-friendly way use `princ`. This also omits th
 (princ "Hello world!")
 ;; => Hello world!
 ```
+
+### Writing a line break
+
+To write a line break to the console use `fresh-line`. This will produce a line break if the current write position is not at the beginning of the line, otherwise it won't do anything:
+
+```lisp
+(fresh-line)
+```
