@@ -743,3 +743,23 @@ If you don't want to write to the console, but to a string instead, use `prin1-t
 (princ-to-string 'foobar)
 ;; => "foobar"
 ```
+
+The common base for `prin1-to-string` and `princ-to-string` is `write-to-string`. They only differ in the presets used.
+
+### Reading input
+
+To read data from the console use `read`. This will interpret everything as Lisp code, hence you need to surround strings by double quotes, e.g.:
+
+```lisp
+(eval (read))
+```
+
+If you actually want the user to only enter a string use `read-line` instead, and you will always get a string.
+
+### Reading input from a string
+
+If you have Lisp code within a string that you want to turn into actual code use `read-from-string`:
+
+```lisp
+(eval (read-from-string "(princ \"Hello world!\")"))
+```
