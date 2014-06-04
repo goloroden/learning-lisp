@@ -647,3 +647,13 @@ If you actually need to provide multiple expressions where only a single one is 
 ```lisp
 (progn (princ "Hello ") (princ "world!"))
 ```
+
+### Handling multiple conditions
+
+From time to time you need to check multiple conditions and decide which path to follow. For these cases Lisp provides `cond` that takes pairs of conditions and expressions. Hence, its canonical form is:
+
+```lisp
+(cond
+  (<condition> <expression> <...>)
+  (<condition> <expression> <...>))
+```
