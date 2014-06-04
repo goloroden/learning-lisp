@@ -670,16 +670,10 @@ A real-life example may be an implementation of *fizz buzz*:
 
 ```lisp
 (defun is-fizz-buzz (n)
-  (cond
-    ((and
-       (zerop (mod n 3))
-       (zerop (mod n 5)))
-     'fizz-buzz)
-    ((zerop (mod n 3))
-     'fizz)
-    ((zerop (mod n 5))
-     'buzz)
-    (t n)))
+  (cond ((and (zerop (mod n 3)) (zerop (mod n 5))) 'fizz-buzz)
+        ((zerop (mod n 3)) 'fizz)
+        ((zerop (mod n 5)) 'buzz)
+        (t n)))
 
 (is-fizz-buzz 15)
 ;; => fizz-buzz
