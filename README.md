@@ -590,3 +590,25 @@ To cast a type into another one use `coerce` and provide the expression to cast 
 (coerce (#\H #\e #\l #\l #\o) 'string)
 ;; => "Hello"
 ```
+
+## Conditionals
+
+### Boolean relations
+
+To merge multiple boolean values into a single you can either use `and` or `or`. Both provide shortcut evaluation:
+
+```lisp
+(and t t)   ; => t
+(and t nil) ; => nil
+(or t t)    ; => t
+(or t nil)  ; => t
+```
+
+Please note that `and` and `or` also work with values of types other than `BOOLEAN`. The following lines show a few examples:
+
+```lisp
+(and 23 42)  ; => 42
+(and nil 42) ; => nil
+(or 23 42)   ; => 23
+(or nil 42)  ; => 42
+```
