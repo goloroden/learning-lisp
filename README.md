@@ -754,7 +754,11 @@ To read data from the console use `read`. This will interpret everything as Lisp
 (eval (read))
 ```
 
-If you actually want the user to only enter a string use `read-line` instead, and you will always get a string.
+If you actually want the user to only enter a string use `read-line` instead, and you will always get a string:
+
+```lisp
+(eval (read-line))
+```
 
 ### Reading input from a string
 
