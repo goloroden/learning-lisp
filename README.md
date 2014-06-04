@@ -657,7 +657,7 @@ If you actually need to provide multiple expressions where only a single one is 
 
 ### Handling multiple conditions
 
-From time to time you need to check multiple conditions and decide which path to follow. For these cases Lisp provides `cond` that takes pairs of conditions and expressions. Usually the last condition is specified as `t`. Hence, its canonical form is:
+From time to time you need to check multiple conditions and decide which branch to use. For these cases Lisp provides `cond` that takes pairs of conditions and expressions. Usually the last branch is specified by the condition `t`. Hence, its canonical form is:
 
 ```lisp
 (cond
@@ -683,4 +683,24 @@ A real-life example may be an implementation of *fizz buzz*:
 
 (is-fizz-buzz 15)
 ;; => fizz-buzz
+```
+
+Alternatively you can use `case` that compares an expression against a list of symbols using `eq`. Again, the last branch is specified by `otherwise`. Hence, its canonical form is:
+
+```lisp
+(case <expression>
+  (<value> <expression> <...>)
+  (<value> <expression> <...>)
+  (otherwise <expression> <...>))
+```
+
+A real-life example may be a function that uses the above mentioned calculation of *fizz buzz*:
+
+```lisp
+(defun fizz-buzz (n)
+  (case (is-fizz-buzz n)
+        ('fizz (princ "Fizz!"))
+        ('buzz (princ "Buzz!"))
+        ('fizz-buzz (princ "Fizz-Buzz!"))
+        (otherwise (princ n))))
 ```
