@@ -701,3 +701,28 @@ A real-life example may be a function that uses the above mentioned calculation 
 (fizz-buzz 15)
 ;; => "Fizz-Buzz!"
 ```
+
+## Working with the console
+
+### Writing output
+
+To write an expression to the console use `print`. This will write the expression as seen by Lisp, e.g. including the double quotes when writing a string. Additionally, the output is terminated by a `#\newline` character:
+
+```lisp
+(print "Hello world!")
+;; => "Hello world!"
+```
+
+If you want to omit the line break use `prin1` instead of `print`:
+
+```lisp
+(prin1 "Hello world!")
+;; => "Hello world!"
+```
+
+To write the output in a more human-friendly way use `princ`. This also omits the line break, but will also omit the double quotes around strings:
+
+```lisp
+(princ "Hello world!")
+;; => Hello world!
+```
