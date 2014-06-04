@@ -424,7 +424,7 @@ You may also use `find-if` if you want to describe the element being looked for 
 ;; => 7
 ```
 
-Finally, when working with `alist`s, you can also use `assoc` to get an element by its key, instead of using `find` with the `:key` parameter:
+Finally, when working with `alist`s, you can also use `assoc` to get an element by its key, instead of using `find` with its `:key` parameter set to `#'car`:
 
 ```lisp
 (assoc 'foo '((foo . bar) (baz . bas)))
