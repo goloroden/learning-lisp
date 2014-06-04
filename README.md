@@ -568,3 +568,15 @@ If you rather want to compare for common meaning than for common looks, use `equ
 ### Inequality
 
 For numbers, just like `=`, you can also use `>`, `<`, `>=` and `<=`.
+
+## Coercion
+
+To cast a type into another one use `coerce` and provide the expression to cast as well as the demanded target type:
+
+```lisp
+(coerce "Hello" 'list)
+;; => (#\H #\e #\l #\l #\o)
+
+(coerce (#\H #\e #\l #\l #\o) 'string)
+;; => "Hello"
+```
