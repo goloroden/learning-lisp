@@ -734,3 +734,12 @@ To write a line break to the console use `fresh-line`. This will produce a line 
 ```lisp
 (fresh-line)
 ```
+
+### Writing to a string
+
+If you don't want to write to the console, but to a string instead, use `prin1-to-string` or `princ-to-string`:
+
+```lisp
+(princ-to-string 'foobar)
+;; => "foobar"
+```
