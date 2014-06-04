@@ -221,6 +221,13 @@ To test whether a number is even or odd, use `evenp` and `oddp`:
 (oddp 23)  ; => t
 ```
 
+To test whether a number is equal to zero use `zerop`:
+
+```lisp
+(zerop 0) ; => t
+(zerop 1) ; => nil
+```
+
 ### Predicates on characters
 
 To test whether a character is of a specific class of characters, use `alphanumericp` and `digit-char-p`:
@@ -656,4 +663,23 @@ From time to time you need to check multiple conditions and decide which path to
 (cond
   (<condition> <expression> <...>)
   (<condition> <expression> <...>))
+```
+
+A working, real-life example may be an implementation of *fizz buzz*:
+
+```lisp
+(defun fizz-buzz (n)
+  (cond
+    ((and
+       (zerop (mod n 3))
+       (zerop (mod n 5)))
+     'fizz-buzz)
+    ((zerop (mod n 3))
+     'fizz)
+    ((zerop (mod n 5))
+     'buzz)
+    (t n)))
+
+(fizz-buzz 15)
+;; => fizz-buzz
 ```
