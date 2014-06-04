@@ -642,7 +642,7 @@ Finally, when you need `when` and `unless` in combination use `if`. Please note 
 
 ### Executing multiple expressions
 
-If you actually need to execute multiple expressions use `progn`:
+If you actually need to provide multiple expressions where only a single one is allowed use `progn`:
 
 ```lisp
 (progn (princ "Hello ") (princ "world!"))
