@@ -199,6 +199,16 @@ To calculate the power of a value use `expt` and provide the base as well as the
 
 In Lisp there are a number of pre-defined predicate functions. They end in `p`, or - if the function itself already contains a hyphen - in `-p`.
 
+### Common predicates
+
+To test whether an expression is equivalent to `nil` use `null`:
+
+```lisp
+(null ())  ; => t
+(null nil) ; => t
+(null #\a) ; => nil
+```
+
 ### Predicates on numbers
 
 To test whether a number is even or odd, use `evenp` and `oddp`:
