@@ -612,3 +612,38 @@ Please note that `and` and `or` also work with values of types other than `BOOLE
 (or 23 42)   ; => 23
 (or nil 42)  ; => 42
 ```
+
+### When, unless and if
+
+To run code only when a certain condition is met use `when`, provide the condition itself and one or more expressions to run:
+
+```lisp
+(defun is-prime (n)
+  (when (find n '(2 3 5 7 11))
+    'n-is-prime))
+```
+
+To run code when a condition is *not* met use `unless` instead:
+
+```lisp
+(defun is-not-prime (n)
+  (unless (find n '(2 3 5 7 11))
+    'n-is-not-prime))
+```
+
+Finally, when you need `when` and `unless` in combination use `if`. Please note that `if` does not support multiple expressions, hence both code paths must consist of a single expression:
+
+```lisp
+(defun is-prime (n)
+  (if (find n '(2 3 5 7 11))
+      'n-is-prime
+      'n-is-not-prime))
+```
+
+### Executing multiple expressions
+
+If you actually need to execute multiple expressions use `progn`:
+
+```lisp
+(progn (princ "Hello ") (princ "world!"))
+```
