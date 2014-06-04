@@ -504,3 +504,37 @@ To convert characters to uppercase or lowercase, use `char-upcase` and `char-dow
 (char-upcase #\a)   ; => A
 (char-downcase #\A) ; => a
 ```
+
+## Comparing values
+
+When comparing values Lisp provides a number of possibilities. Some of them work only for specific types, others work for a variety of types as well.
+
+### Equality
+
+To compare symbols use `eq`:
+
+```lisp
+(eq 'a 'a) ; => t
+(eq 'a 'b) ; => nil
+```
+
+To compare numbers use `=`:
+
+```lisp
+(= 1 1) ; => t
+(= 1 2) ; => nil
+```
+
+To compare characters use `char-equal`:
+
+```lisp
+(char-equal #\a #\a) => t
+(char-equal #\a #\b) => nil
+```
+
+To compare strings use `string-equal`:
+
+```lisp
+(string-equal "Hello" "Hello") ; => t
+(string-equal "Hello" "world") ; => nil
+```
