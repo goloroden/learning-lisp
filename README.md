@@ -697,4 +697,7 @@ A real-life example may be a function that uses the above mentioned calculation 
         ('buzz (princ "Buzz!"))
         ('fizz-buzz (princ "Fizz-Buzz!"))
         (otherwise (princ n))))
+
+(fizz-buzz 15)
+;; => "Fizz-Buzz!"
 ```
