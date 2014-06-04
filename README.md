@@ -392,6 +392,52 @@ To add a new item to a list use `push`. Please note that `push` adds to the begi
 *primes* ; => (2 3 5 7 11)
 ```
 
+### Searching lists
+
+To detect whether a given element is contained within a list use `member`. If the element is contained, `member` returns the rest of the list starting with the given element, otherwise it returns `nil`:
+
+```lisp
+(member 5 '(2 3 5 7 11)) ; => (5 7 11)
+(member 4 '(2 3 5 7 11)) ; => nil
+```
+
+Please note that this also works if you are looking for `nil` itself, as in the case of success `member` returns a list containing `nil`.
+
+Alternatively, you may use `find`. It returns the element itself if it is contained, rather than a list:
+
+```lisp
+(find 5 '(2 3 5 7 11)) ; => 5
+(find 4 '(2 3 5 7 11)) ; => nil
+```
+
+Additionally you may specify a function that is used to get the key. This is useful if you want to search an `alist` for a given key:
+
+```lisp
+(find 'foo '((foo . bar) (baz . bas)) :key #'car)
+;; => (foo . bar)
+```
+
+You may also use `find-if` if you want to describe the element being looked for using a function:
+
+```lisp
+(find-if (lambda (p) (> p 5)) '(2 3 5 7 11))
+;; => 7
+```
+
+Finally, when working with `alist`s, you can also use `assoc` to get an element by its key. So instead of
+
+```lisp
+(find 'foo '((foo . bar) (baz . bas)) :key #'car)
+;; => (foo . bar)
+```
+
+you can also use:
+
+```lisp
+(assoc 'foo '((foo . bar) (baz . bas)))
+;; => (foo . bar)
+```
+
 ## Working with characters and strings
 
 ### Getting the length of a string
