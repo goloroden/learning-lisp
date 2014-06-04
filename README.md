@@ -509,32 +509,62 @@ To convert characters to uppercase or lowercase, use `char-upcase` and `char-dow
 
 When comparing values Lisp provides a number of possibilities. Some of them work only for specific types, others work for a variety of types as well.
 
-### Equality
+### Identity
 
-To compare symbols use `eq`:
+The simplest comparison possible is by using `eq`. It compares two values by reference, or - to put it differently - it compares their identity. Hence `eq` is primarily used to compare symbols:
 
 ```lisp
 (eq 'a 'a) ; => t
 (eq 'a 'b) ; => nil
 ```
 
-To compare numbers use `=`:
+You may also use `eql` which basically does the same as `eq`, but also handles numbers and characters. Anyway, number must be of the same type, either both integer or both decimal:
 
 ```lisp
-(= 1 1) ; => t
-(= 1 2) ; => nil
+(eql #\a #\a) ; => t
+(eql 1.0 1.0) ; => t
 ```
 
-To compare characters use `char-equal`:
+### Equality for specific types
+
+There are specific ways to compare specific types. E.g., is you want to compare numbers, no matter whether they are integers or decimals, use `=`:
 
 ```lisp
-(char-equal #\a #\a) => t
-(char-equal #\a #\b) => nil
+(= 1 1)   ; => t
+(= 1 1.0) ; => t
 ```
 
-To compare strings use `string-equal`:
+Instead, if you need to compare characters use `char-equal`. Please note that this ignores the casing of the given characters:
+
+```lisp
+(char-equal #\a #\a) ; => t
+(char-equal #\a #\A) ; => t
+```
+
+To compare not only single characters but complete strings use `string-equal`. Please note that this also ignores the casing:
 
 ```lisp
 (string-equal "Hello" "Hello") ; => t
-(string-equal "Hello" "world") ; => nil
+(string-equal "Hello" "HELLO") ; => t
 ```
+
+### Equality for various types
+
+Additionally to the comparisons mentioned before there are a number of more complex ones.
+
+The most important one is `equal` that compares two values isomorphicly, i.e., as a rule of thumb you might say that things are considered to be equal when they look the same:
+
+```lisp
+(equal 'foo 'foo)     ; => t
+(equal 1 1)           ; => t
+(equal 1.0 1.0)       ; => t
+(equal #\a #\a)       ; => t
+(equal "abc" "abc")   ; => t
+(equal '(2 3) '(2 3)) ; => t
+```
+
+If you rather want to compare for common meaning than for common looks, use `equalp` instead. It will also compare numbers of different types and ignore different casing when comparing characters and strings.
+
+### Inequality
+
+For numbers, just like `=`, you can also use `>`, `<`, `>=` and `<=`.
