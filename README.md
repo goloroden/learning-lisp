@@ -431,6 +431,22 @@ Finally, when working with `alist`s, you can also use `assoc` to get an element 
 ;; => (foo . bar)
 ```
 
+### Manipulating lists
+
+If you want to replace elements of a list according to a given criterion use `substitute-if` and provide the replacement, a predicate and the list itself:
+
+```lisp
+(substitute-if 0 #'evenp '(1 2 3 4 5 6 7 8 9 10))
+;; => (1 0 3 0 5 0 7 0 9 0)
+```
+
+Alternatively, you may want to remove the elements that match the predicate. For that use `remove-if`:
+
+```lisp
+(remove-if #'evenp '(1 2 3 4 5 6 7 8 9 10))
+;; => (1 3 5 7 9)
+```
+
 ## Working with characters and strings
 
 ### Getting the length of a string
