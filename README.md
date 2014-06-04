@@ -767,3 +767,16 @@ If you have Lisp code within a string that you want to turn into actual code use
 ```lisp
 (eval (read-from-string "(princ \"Hello world!\")"))
 ```
+
+## Working with files
+
+### Opening a file
+
+To open a file use `with-open-file` and provide the name of a stream, the name of the file and, optionally, some parameters to control how the file is being opened. Inside the body of `with-open-file` you can then use the stream's name as variable to write to:
+
+```lisp
+(with-open-file (my-stream "foo.txt" :direction :output :if-exists :supersede)
+  (princ "Hello world!" my-stream))
+```
+
+If you specify `*standard-output*` as stream name, any writes to the standard output become redirected to the file.
