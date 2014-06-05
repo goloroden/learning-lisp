@@ -683,8 +683,8 @@ Alternatively you can use `case` that compares an expression against a list of v
 
 ```lisp
 (case <expression>
-  (<value> <expression> <...>)
-  (<value> <expression> <...>)
+  ((<value>) <expression> <...>)
+  ((<value>) <expression> <...>)
   (otherwise <expression> <...>))
 ```
 
@@ -693,14 +693,16 @@ A real-life example may be a function that uses the above mentioned calculation 
 ```lisp
 (defun fizz-buzz (n)
   (princ (case (is-fizz-buzz n)
-               ('fizz "Fizz!")
-               ('buzz "Buzz!")
-               ('fizz-buzz "Fizz-Buzz!")
+               ((fizz) "Fizz!")
+               ((buzz) "Buzz!")
+               ((fizz-buzz) "Fizz-Buzz!")
                (otherwise n))))
 
 (fizz-buzz 15)
 ;; => "Fizz-Buzz!"
 ```
+
+Please note that `case` checks against a *list* of values, even in a single branch. Hence you must wrap values in parentheses. Additionally, do not quote values, as otherwise `'(foo)` is resolved to `(quote foo)`.
 
 ## Working with the console
 
