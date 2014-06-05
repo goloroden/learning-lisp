@@ -679,7 +679,7 @@ A real-life example may be an implementation of *fizz buzz*:
 ;; => fizz-buzz
 ```
 
-Alternatively you can use `case` that compares an expression against a list of values using `eq`. The last branch is specified by `otherwise`. Hence, its canonical form is:
+Alternatively you can use `case` that compares an expression against a list of values using `eql`. The last branch is specified by `otherwise`. Hence, its canonical form is:
 
 ```lisp
 (case <expression>
