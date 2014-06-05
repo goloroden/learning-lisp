@@ -692,11 +692,11 @@ A real-life example may be a function that uses the above mentioned calculation 
 
 ```lisp
 (defun fizz-buzz (n)
-  (case (is-fizz-buzz n)
-        ('fizz (princ "Fizz!"))
-        ('buzz (princ "Buzz!"))
-        ('fizz-buzz (princ "Fizz-Buzz!"))
-        (otherwise (princ n))))
+  (princ (case (is-fizz-buzz n)
+               ('fizz "Fizz!")
+               ('buzz "Buzz!")
+               ('fizz-buzz "Fizz-Buzz!")
+               (otherwise n))))
 
 (fizz-buzz 15)
 ;; => "Fizz-Buzz!"
@@ -748,7 +748,7 @@ The common base for `prin1-to-string` and `princ-to-string` is `write-to-string`
 
 ### Reading input
 
-To read data from the console use `read`. This will interpret everything as Lisp code, hence you need to surround strings by double quotes, e.g.:
+To read data from the console use `read`. This will interpret everything as Lisp data, hence you need to surround strings by double quotes, e.g.:
 
 ```lisp
 (eval (read))
@@ -759,6 +759,8 @@ If you actually want the user to only enter a string use `read-line` instead, an
 ```lisp
 (eval (read-line))
 ```
+
+Of course, as in any other language, running `eval` on basically arbitrary code is a major security concern, so you should be careful with this one.
 
 ### Reading input from a string
 
