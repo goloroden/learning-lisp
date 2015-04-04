@@ -1,0 +1,5 @@
+(defun fizz-buzz (n)
+  (cond ((and (zerop (mod n 3)) (zerop (mod n 5))) 'fizz-buzz)
+        ((zerop (mod n 3)) 'fizz)
+        ((zerop (mod n 5)) 'buzz)
+        (t n)))
