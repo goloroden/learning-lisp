@@ -50,3 +50,12 @@
       (progn (setf *location* (car next))
              (look))
       '(you cannot go that way.))))
+
+(defun pickup (object)
+  (cond ((member object (objects-at *location* *objects* *object-locations*))
+          (push (list object 'body) *object-locations*)
+          `(you are now carrying the ,object))
+        (t '(you cannot get that.))))
+
+(defun inventory ()
+  (cons 'items- (objects-at 'body *objects* *object-locations*)))
