@@ -5,12 +5,10 @@
   (list (throw-die) (throw-die)))
 
 (defun snake-eyes-p (throw)
-  (and (equal (car throw) 1)
-       (equal (cadr throw) 1)))
+  (equal throw '(1 1)))
 
 (defun boxcars-p (throw)
-  (and (equal (car throw) 6)
-       (equal (cadr throw) 6)))
+  (equal throw '(6 6)))
 
 (defun instant-win-p (throw)
   (let ((sum (apply #'+ throw)))
